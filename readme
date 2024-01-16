@@ -1,0 +1,16 @@
+parse-json
+| project "Results"
+| project-away "CreatedTime"
+| extend "Kind", "Name","Namespace", "ID"=strcat("Results.pdbDisruptionsIsZero.ID","Results.sensitiveConfigmapContent.ID","Results.rolebindingClusterAdminClusterRole.ID","Results.rolebindingClusterAdminRole.ID","Results.rolebindingClusterRolePodExecAttach.ID","Results.rolebindingRolePodExecAttach.ID","Results.rolePodExecAttach.ID"),"Message"=strcat("Results.pdbDisruptionsIsZero.Message","Results.sensitiveConfigmapContent.Message","Results.rolebindingClusterAdminClusterRole.Message","Results.rolebindingClusterAdminRole.Message","Results.rolebindingClusterRolePodExecAttach.Message","Results.rolebindingRolePodExecAttach.Message","Results.rolePodExecAttach.Message"), "Severity"=strcat("Results.pdbDisruptionsIsZero.Severity","Results.sensitiveConfigmapContent.Severity", "Results.rolePodExecAttach.Severity"),"Category"=strcat("Results.pdbDisruptionsIsZero.Category","Results.sensitiveConfigmapContent.Category","Results.rolebindingClusterAdminClusterRole.Category","Results.rolebindingClusterAdminRole.Category","Results.rolebindingClusterRolePodExecAttach.Category","Results.rolebindingRolePodExecAttach.Category","Results.rolePodExecAttach.Category"), "Success"=strcat("Results.pdbDisruptionsIsZero.Success","Results.sensitiveConfigmapContent.Success","Results.rolebindingClusterAdminClusterRole.Success","Results.rolebindingClusterAdminRole.Success","Results.rolebindingClusterRolePodExecAttach.Success","Results.rolebindingRolePodExecAttach.Success","Results.rolePodExecAttach.Success")
+| project-away "PodResult", "Results"
+
+	pdbDisruptionsIsZero
+sensitiveConfigmapContent	
+rolePodExecAttach
+deploymentMissingReplicas
+automountServiceAccountToken
+cpuLimitsMissing
+deploymentMissingReplicas
+automountServiceAccountToken
+cpuLimitsMissing
+rolebindingClusterAdminClusterRole
